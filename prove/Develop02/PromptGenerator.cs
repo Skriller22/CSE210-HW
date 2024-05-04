@@ -8,7 +8,7 @@ public class promptGenerator
     {
         prompts = new string[]
         {
-            "If you could give your aday a color, what would it be and why?",
+            "If you could give your day a color, what would it be and why?",
             "Who influenced your day the most today?",
             "What are you most anxious for in the future?",
             "What is your favorite thing about yourself?",
