@@ -5,19 +5,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        Journal journal = new Journal();
 
-        promptGenerator promptGenerator = new promptGenerator();
-
-        List<string> entries = new List<string>();
-
-        Console.WriteLine("Journal Program");
-        Console.WriteLine("Select a menu option by entering a number.");
-        Console.Write("Please input name of Journal file (ex: journal.txt):");
-
-        string loadFile = Console.ReadLine();
+        journal.initialize();
 
         do
         {
+            Console.WriteLine("---------- Main Menu ----------");
             Console.WriteLine("Please Select one of the following options:");
             Console.WriteLine("1. Write entry");
             Console.WriteLine("2. Display entries");
@@ -32,47 +26,16 @@ class Program
             switch (choice)
             {
                 case 1:
-                    string prompt = promptGenerator.SelectRandomPrompt();
-                    DateTime now = DateTime.Now;
-                    string dateText = now.ToShortDateString();
-
-                    Console.WriteLine($"{dateText} - Prompt: {prompt}");
-
-                    string entry = Console.ReadLine();
-
-                    string formattedEntry = $"Date: {dateText} Prompt: {prompt} \nEntry:\n{entry}\n";
-                    entries.Add(formattedEntry);
+                    journal.WriteEntry();
                     break;
                 case 2:
-                    if (entries.Count > 0)
-                    {
-                        Console.WriteLine("Entries:");
-                        foreach (string e in entries)
-                        {
-                            Console.WriteLine(e);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No entries found.");
-                    }
+                    journal.DisplayEntries();
                     break;
                 case 3:
-                    if (File.Exists("journal.txt"))
-                    {
-                        string[] loadedEntries = File.ReadAllLines("journal.txt");
-                        entries.AddRange(loadedEntries);
-                        Console.WriteLine("Entries loaded.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No entries found.");
-                    
-                    }
+                    journal.ChangeLoadFile();
                     break;
                 case 4:
-                    File.WriteAllLines("journal.txt", entries);
-                    Console.WriteLine("Entries saved.");
+                    journal.SaveToFile();
                     break;
                 case 5:
                     Console.WriteLine("Exit");
