@@ -8,11 +8,13 @@ public class promptGenerator
     {
         prompts = new string[]
         {
-            "Write about a memorable childhood experience.",
-            "Describe a person who has had a significant impact on your life.",
-            "What is your biggest fear and why?",
-            "Discuss a book or movie that has influenced you.",
-            "Write about a time when you overcame a challenge.",
+            "If you could give your aday a color, what would it be and why?",
+            "Who influenced your day the most today?",
+            "What are you most anxious for in the future?",
+            "What is your favorite thing about yourself?",
+            "How are you accomplishing your goals today?",
+            "What was your least favorite part of the day?",
+            "If you could change one thing about today, what would it be?",
             // Add more prompts here
         };
     }
