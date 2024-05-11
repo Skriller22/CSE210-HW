@@ -12,6 +12,14 @@ public class Scripture
         PercentageOfWordsToHide = 0;
     }
 
+    public Scripture(string book, int chapter, int verse, int endVerse, string words)
+    {
+        Reference = new Reference(book, chapter, verse, endVerse);
+        Words = parseScriptureWords(words);
+
+        PercentageOfWordsToHide = 0;
+    }
+
     public void HideRandomWords(int percentageOfWordsToHide)
     {
             // Hide randoms word in the Words property

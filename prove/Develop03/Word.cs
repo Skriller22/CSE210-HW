@@ -29,7 +29,7 @@ public class Word
     {
         if (isHidden == true)
         {
-            return "______";
+            return new string('_', Text.Length);
         }
         else
         {
