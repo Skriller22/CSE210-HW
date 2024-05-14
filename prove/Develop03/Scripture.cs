@@ -139,4 +139,12 @@ public class Scripture
         // Calculate the success rate
         return (double)correctWords / (double)Words.Count;
     }
+
+    public void ShowAllWords()
+    {
+        foreach (Word word in Words)
+        {
+            word.Show();
+        }
+    }
 }

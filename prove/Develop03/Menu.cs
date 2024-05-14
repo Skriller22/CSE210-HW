@@ -11,8 +11,11 @@ class Menu
             switch(menuChoice)
             {
                 case "1":
-                    // Create a new scripture object
-                    scriptureManager.CreateScripture();
+                    //Display the create scripture menu
+                    string createScriptureChoice = CreateScriptureMenu();
+
+                    //Handle the user's choice
+                    scriptureManager.CreateScripture(createScriptureChoice);
                     
                     // Return to the menu
                     menuChoice = "0";
@@ -54,5 +57,14 @@ class Menu
         Console.Write("\n1. Choose a scripture reference\n2. Practice memorizing\n3. Quit\n-");
         string menuChoice = Console.ReadLine();
         return menuChoice;
+    }
+
+    private string CreateScriptureMenu()
+    {
+        Console.Clear();
+        Console.WriteLine("-------------- Create Scripture --------------");
+        Console.WriteLine("\n1. Input your own scripture\n2. Select from a list\n3. Load a file of scriptures\n-");
+        string createScriptureChoice = Console.ReadLine();
+        return createScriptureChoice;
     }
 }
