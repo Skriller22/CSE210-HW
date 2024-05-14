@@ -1,6 +1,6 @@
 class ScriptureManager
 {
-    private Scripture scripture = new Scripture("Book", 0, 0, 0, "Text - if you are seeing this, something went wrong.");
+    private Scripture scripture = new Scripture("John", 3, 16, 0, "For God so loved the world, that he gave his only begotten Sin, that whosoever believeth in him should not perish, but have everlasting life.");
     public string CreateScripture()
     {
         Console.WriteLine("Enter the scripture reference (e.g. John 3:16): ");
