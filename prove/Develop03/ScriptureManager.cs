@@ -6,7 +6,7 @@ class ScriptureManager
         switch(choice)
         {
             case "1":
-                Console.WriteLine("Enter the scripture reference (e.g. John 3:16): ");
+                Console.WriteLine("Enter the scripture reference (e.g. John 3:16-17): ");
                 string referenceInput = Console.ReadLine();
 
                 // Split the user input into parts
