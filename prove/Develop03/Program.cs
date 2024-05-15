@@ -4,7 +4,8 @@ using System.Collections.Generic;
 // Creativity: 
 // I added a scripture manager class to manage the creation and practice of scriptures
 // I added a menu class to manage the menu options
-// I used the Fisher-Yates algorithm to shuffle the words in the scripture
+// I used the Fisher-Yates algorithm to shuffle the hidden words in the scripture
+// I made the words hide based on success/accuracy of user's input
 
 class Program
 {
