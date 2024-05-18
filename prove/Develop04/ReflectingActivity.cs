@@ -14,20 +14,19 @@ public class ReflectingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        Console.WriteLine("Would you like to start the reflecting activity? (y/n)");
+        Console.Write("\nWould you like to start the reflecting activity? (y/n) ");
         string response = Console.ReadLine();
 
         if (response == "y") //Start the activity
         {
-            Console.WriteLine("How long would you like to do this activity for? (in seconds)");
+            Console.Write("\nHow long would you like to do this activity for? (in seconds) ");
             Duration = Convert.ToInt32(Console.ReadLine());
 
-            _timer = new Timer(StopActivity, null, Duration * 1000, Timeout.Infinite);
 
             Console.Clear();
             DisplayPrompt(GetRandomPrompt());
-            ShowSpinner(10);
-
+            
+            _timer = new Timer(StopActivity, null, Duration * 1000, Timeout.Infinite);
             while (!_timeUp)
             {
                 DisplayQuestion(GetRandomQuestion());
@@ -76,7 +75,16 @@ public class ReflectingActivity : Activity
 
     private void DisplayPrompt(string prompt)
     {
-        Console.WriteLine(prompt);
+        Console.Clear();
+        Console.WriteLine("Ponder on the following prompt:");
+        Console.WriteLine($" ----- {prompt} ----- ");
+
+        Console.WriteLine("When you are ready, press any key to continue.");
+        Console.ReadKey();
+
+        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience:");
+        Console.Write("Activity beginning in: "); ShowCountDown(5);
+        Console.Clear();
     }
 
     private void DisplayQuestion(string question)

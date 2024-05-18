@@ -5,39 +5,32 @@ public class Activity
 
     private int _duration = 1;
 
-    public string Name
+    protected string Name
     {
         get { return _name; }
         set { _name = value; }
     }
 
-    public string Description
+    protected string Description
     {
         get { return _description; }
         set { _description = value; }
     }
 
-    public int Duration
+    protected int Duration
     {
         get { return _duration; }
         set { _duration = value; }
     }
 
-    public void ActivityStart()
-    {
-        Console.Clear();
-        Console.WriteLine($"Starting {_name}.");
-        Console.WriteLine(_description);
-    }
-
-    public void DisplayStartingMessage()
+    protected void DisplayStartingMessage()
     {
         Console.Clear();
         Console.WriteLine(_name);
         Console.WriteLine(_description);
     }
 
-    public void DisplayEndingMessage()
+    protected void DisplayEndingMessage()
     {
         System.Threading.Thread.Sleep(2000);
         Console.Clear();
@@ -68,8 +61,10 @@ public class Activity
         for (int i = seconds; i > 0; i--)
         {
             System.Threading.Thread.Sleep(500);
-            Console.WriteLine("<>");
+            Console.Write(i);
             System.Threading.Thread.Sleep(500);
+            Console.Write("\b \b"); //backspace
         }
+        Console.Write("\b");
     }
 }

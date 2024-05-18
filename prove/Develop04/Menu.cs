@@ -11,16 +11,16 @@ public class Menu
             switch (choice)
             {
                 case 1:
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.Run();
+                    break;
+                case 2:
                     ReflectingActivity reflectingActivity = new ReflectingActivity();
                     reflectingActivity.Run();
                     break;
-                case 2:
+                case 3:
                     ListingActivity listingActivity = new ListingActivity();
                     listingActivity.Run();
-                    break;
-                case 3:
-                    BreathingActivity breathingActivity = new BreathingActivity();
-                    breathingActivity.Run();
                     break;
                 case 4:
                     Console.WriteLine("Exiting...");
@@ -35,9 +35,9 @@ public class Menu
     {
         Console.Clear();
         Console.WriteLine("Choose an activity:");
-        Console.WriteLine("1. Reflecting Activity");
-        Console.WriteLine("2. Listing Activity");
-        Console.WriteLine("3. Breathing Activity");
+        Console.WriteLine("1. Breathing Activity");
+        Console.WriteLine("2. Reflecting Activity");
+        Console.WriteLine("3. Listing Activity");
         Console.WriteLine("4. Exit");
     }
 }

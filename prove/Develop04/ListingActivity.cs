@@ -12,12 +12,21 @@ public class ListingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        Console.WriteLine("Start listing activity? (y/n)");
+        Console.Write("\nStart listing activity? (y/n) ");
         string response = Console.ReadLine();
+
         if (response == "y") //Start the activity
         {
             Console.Clear();
-            Console.WriteLine(GetRandomPrompt());
+            Console.Write("\nHow long would you like to do this activity for? (in seconds) ");
+            Duration = Convert.ToInt32(Console.ReadLine());
+
+            Console.Clear();
+            Console.WriteLine($"List as many items as you can to the following prompt:");
+            Console.WriteLine($" ----- {GetRandomPrompt()} ----- ");
+            Console.Write("Activity beginning in: "); ShowCountDown(5);
+            Console.WriteLine("");
+
             List<string> list = GetListFromUser();
             DisplayEndingMessage();
         }
@@ -31,7 +40,10 @@ public class ListingActivity : Activity
             "What are your personal strengths?",
             "Who have you helped this week?",
             "What are the things you are looking forward to?",
-            "Who are some of your personal heroes?"
+            "Who are some of your personal heroes?",
+            "What are some of your favorite memories?",
+            "What are some of your favorite things to do?",
+            "What are some of your favorite things to eat?"
         };
 
         return prompts[new Random().Next(prompts.Length)];
@@ -39,14 +51,12 @@ public class ListingActivity : Activity
 
     private List<string> GetListFromUser()
     {
-        Console.WriteLine($"Enter as many items as you can in the next {Duration} seconds");
-        Console.WriteLine("Type 'done' if you are finished.");
-
         List<string> list = new List<string>();
         Stopwatch stopwatch = Stopwatch.StartNew();
 
         while (true)
         {
+            Console.Write("> ");
             string input = Console.ReadLine();
 
             if (stopwatch.Elapsed.TotalSeconds >= Duration)
