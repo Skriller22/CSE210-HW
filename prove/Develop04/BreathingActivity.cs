@@ -12,11 +12,11 @@ public class BreathingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
-        Console.WriteLine("Start the breathing activity? (y/n)");
+        Console.Write("Start the breathing activity? (y/n) ");
         string response = Console.ReadLine();
         if (response == "y") //Start the activity
         {
-            Console.WriteLine("\nHow long would you like to do this activity for? (in seconds)");
+            Console.Write("\nHow long would you like to do this activity for? (in seconds) ");
             double duration = Convert.ToInt32(Console.ReadLine());
             TimeSpan timeSpan = TimeSpan.FromSeconds(duration);
 
