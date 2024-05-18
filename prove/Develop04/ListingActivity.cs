@@ -1,18 +1,29 @@
+using System.Diagnostics;
+
 public class ListingActivity : Activity
 {
     public ListingActivity()
     {
         Name = "Listing Activity";
-        Description = "This activity will help you reflect on the good thingsin your life by having you list as many things as you can in a certain area.";
-        Duration = 5;
+        Description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        Duration = 60;
     }
 
     public void Run()
     {
-        Console.WriteLine("Listing activity");
+        DisplayStartingMessage();
+        Console.WriteLine("Start listing activity? (y/n)");
+        string response = Console.ReadLine();
+        if (response == "y") //Start the activity
+        {
+            Console.Clear();
+            Console.WriteLine(GetRandomPrompt());
+            List<string> list = GetListFromUser();
+            DisplayEndingMessage();
+        }
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         string[] prompts = new string[]
         {
@@ -26,23 +37,40 @@ public class ListingActivity : Activity
         return prompts[new Random().Next(prompts.Length)];
     }
 
-    public List<string> GetListFromUser()
+    private List<string> GetListFromUser()
     {
+        Console.WriteLine($"Enter as many items as you can in the next {Duration} seconds");
+        Console.WriteLine("Type 'done' if you are finished.");
+
         List<string> list = new List<string>();
+        Stopwatch stopwatch = Stopwatch.StartNew();
 
-        Console.WriteLine($"Enter as many items as you can in the next {Duration} minutes.");
-        Console.WriteLine("Type 'done' when you are finished.");
-
-        string item = "";
-        while (item != "done")
+        while (true)
         {
-            item = Console.ReadLine();
-            if (item != "done")
+            string input = Console.ReadLine();
+
+            if (stopwatch.Elapsed.TotalSeconds >= Duration)
             {
-                list.Add(item);
+                Console.WriteLine("\nTime's up!");
+                System.Threading.Thread.Sleep(1700);
+                break;
+            }
+
+            if (input.ToLower() == "done")
+            {
+                break;
+            }
+            else if (string.IsNullOrWhiteSpace(input))
+            {
+                input = "Empty item";
+            }
+            else
+            {
+                list.Add(input);
             }
         }
 
+        stopwatch.Stop();
         return list;
     }
 }

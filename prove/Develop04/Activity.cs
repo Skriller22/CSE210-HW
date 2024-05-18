@@ -3,7 +3,7 @@ public class Activity
     private string _name = "Activity";
     private string _description = "Activity";
 
-    private int _duration = 5;
+    private int _duration = 1;
 
     public string Name
     {
@@ -25,40 +25,51 @@ public class Activity
 
     public void ActivityStart()
     {
-        Console.WriteLine($"Starting {_name} for {_duration} minutes");
+        Console.Clear();
+        Console.WriteLine($"Starting {_name}.");
+        Console.WriteLine(_description);
     }
 
     public void DisplayStartingMessage()
     {
-        Console.WriteLine($"Starting {_name} for {_duration} minutes");
+        Console.Clear();
+        Console.WriteLine(_name);
+        Console.WriteLine(_description);
     }
 
     public void DisplayEndingMessage()
     {
+        System.Threading.Thread.Sleep(2000);
+        Console.Clear();
         Console.WriteLine($"Ending {_name}");
+        Console.WriteLine("Thank you for participating in this activity.");
+        Console.WriteLine();
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
     }
 
-    public void ShowSpinner(int seconds)
+    protected void ShowSpinner(int seconds)
     {
         for (int i = 0; i < seconds; i++)
         {
             Console.Write("/");
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b-");
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b\\");
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b|");
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b");
         }
     }
-    public void ShowCountDown(int seconds)
+    protected void ShowCountDown(int seconds) // Note: Ensure that all looped threading is equal to 1 second
     {
         for (int i = seconds; i > 0; i--)
         {
-            Console.WriteLine(i);
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("<>");
+            System.Threading.Thread.Sleep(500);
         }
     }
 }

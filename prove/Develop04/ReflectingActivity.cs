@@ -1,18 +1,48 @@
 public class ReflectingActivity : Activity
 {
+    private Timer _timer;
+    private bool _timeUp = false;
+
     public ReflectingActivity()
     {
         Name = "Reflecting Activity";
-        Description = "Reflecting on the activity";
-        Duration = 5;
+        Description = 
+        "This activity is meant to help you reflect on your past experiences and learn from them.";
+        Duration = 60;
     }
 
     public void Run()
     {
-        Console.WriteLine("Reflecting activity");
+        DisplayStartingMessage();
+        Console.WriteLine("Would you like to start the reflecting activity? (y/n)");
+        string response = Console.ReadLine();
+
+        if (response == "y") //Start the activity
+        {
+            Console.WriteLine("How long would you like to do this activity for? (in seconds)");
+            Duration = Convert.ToInt32(Console.ReadLine());
+
+            _timer = new Timer(StopActivity, null, Duration * 1000, Timeout.Infinite);
+
+            Console.Clear();
+            DisplayPrompt(GetRandomPrompt());
+            ShowSpinner(10);
+
+            while (!_timeUp)
+            {
+                DisplayQuestion(GetRandomQuestion());
+                if (_timeUp) break;
+            }
+            DisplayEndingMessage();
+        }
+        else
+        {
+            Console.WriteLine("Exiting...");
+        }
     }
 
-    public string GetRandomPrompt()
+
+    private string GetRandomPrompt()
     {
         string[] prompts = new string[]
         {
@@ -25,7 +55,7 @@ public class ReflectingActivity : Activity
         return prompts[new Random().Next(prompts.Length)];
     }
 
-    public string GetRandomQuestion()
+    private string GetRandomQuestion()
     {
         string[] questions = new string[]
         {
@@ -44,13 +74,21 @@ public class ReflectingActivity : Activity
         return questions[new Random().Next(questions.Length)];
     }
 
-    public void DisplayPrompt(string prompt)
+    private void DisplayPrompt(string prompt)
     {
         Console.WriteLine(prompt);
     }
 
-    public void DisplayQuestion(string question)
+    private void DisplayQuestion(string question)
     {
         Console.WriteLine(question);
+        ShowSpinner(20);
+    }
+
+    private void StopActivity(object state)
+    {
+        _timeUp = true;
+        _timer.Dispose();
+        Console.WriteLine("\nTime's up!");
     }
 }
