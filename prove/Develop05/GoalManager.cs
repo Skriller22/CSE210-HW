@@ -47,13 +47,16 @@ public class GoalManager
                     RecordEvent();
                     break;
                 case 6:
+                    CombatMode();
+                    break;
+                case 7:
                     SaveExit();
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
-        } while (choice != 6);
+        } while (choice != 7);
     }
 
     // Menu Options ----------------------------------------------------
@@ -152,6 +155,12 @@ public class GoalManager
             {
                 writer.WriteLine(goal.GetStringRepresentation());
             }
+        }
+
+        // Save the player score for combat mode implementation... not the best way to do this, I know
+        using (StreamWriter writer = new StreamWriter("PlayerData.txt"))
+        {
+            writer.WriteLine(_score);
         }
     }
 
@@ -274,7 +283,8 @@ public class GoalManager
         Console.WriteLine("3. Save");
         Console.WriteLine("4. Load");
         Console.WriteLine("5. Record Success");
-        Console.WriteLine("6. Exit");
+        Console.WriteLine("6. Combat Mode");
+        Console.WriteLine("7. Exit");
     }
 
     private int GetChoice()
@@ -285,5 +295,18 @@ public class GoalManager
     private void DisplayPlayerInfo()
     {
         Console.WriteLine($"\nYou have {_score} points\n");
+    }
+
+    // Combat Mode -----------------------------------------------------
+    public void CombatMode()
+    {
+        // Combat mode
+        CombatMode combatMode = new CombatMode();
+        combatMode.Start();
+
+        Console.WriteLine("Press any key to exit combat mode...");
+        Console.ReadKey();
+
+
     }
 }
