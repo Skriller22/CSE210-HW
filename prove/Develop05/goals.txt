@@ -1,0 +1,4 @@
+Player Score: 10
+Simple Goal|This is a simple goal|10|True
+Eternal Goal|This is an eternal goal|5|0
+Checklist Goal|This is a checklist goal|5|False|10|0|3
