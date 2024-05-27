@@ -7,3 +7,5 @@ class Program
         Console.WriteLine("Hello Foundation3 World!");
     }
 }
+
+// Inheritance
