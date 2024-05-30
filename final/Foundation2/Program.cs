@@ -49,7 +49,8 @@ class Program
         Customer customer3 = new Customer("Jared", "Hermano", new Address("123 Main St", "Anytown", "NY", "12345", "USA"));
         Order order3 = new Order(customer3, new List<Product>
         {
-            new Product("Gizmo", "G321", 29.99, 1)
+            new Product("Gizmo", "G321", 29.99, 1),
+            new Product("Widget", "W123", 9.99, 1)
         });
 
         Console.WriteLine("\nShipping Label: ");
