@@ -6,7 +6,7 @@ public class Comment
     public void Print()
     {
         Console.WriteLine($"Author: {Author}");
-        Console.WriteLine($"Text: {Text}");
+        Console.WriteLine($"Comment: {Text}");
         Console.WriteLine();
     }
     public void CreateRandomComment()

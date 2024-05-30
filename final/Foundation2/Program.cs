@@ -19,6 +19,8 @@ class Program
         order1.DisplayPackingLabel();
 
         Console.WriteLine("\nTotal Price: ");
+        order1.DisplayShippingPrice();
+        order1.DisplayTax();
         order1.DisplayTotalPrice();
 
 
@@ -38,6 +40,8 @@ class Program
         order2.DisplayPackingLabel();
 
         Console.WriteLine("\nTotal Price: ");
+        order2.DisplayShippingPrice();
+        order2.DisplayTax();
         order2.DisplayTotalPrice();
 
 
@@ -55,6 +59,8 @@ class Program
         order3.DisplayPackingLabel();
 
         Console.WriteLine("\nTotal Price: ");
+        order3.DisplayShippingPrice();
+        order3.DisplayTax();
         order3.DisplayTotalPrice();
     }
 }

@@ -17,6 +17,7 @@ public class Video
 
     public void Print()
     {
+        Console.WriteLine("----------Video Information----------");
         Console.WriteLine($"Title: {Title}");
         Console.WriteLine($"Author: {Author}");
         Console.WriteLine($"Duration: {Duration}");

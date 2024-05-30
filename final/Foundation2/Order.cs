@@ -25,9 +25,20 @@ public class Order
         }
     }
 
+
+    public void DisplayShippingPrice()
+    {
+        Console.WriteLine($"Shipping: ${CalculateShippingCost()}");
+    }
+
+    public void DisplayTax()
+    {
+        Console.WriteLine($"Tax: ${CalculateTax()}");
+    }
+
     public void DisplayTotalPrice()
     {
-        Console.WriteLine($"Total: {total}");
+        Console.WriteLine($"Total: ${total}");
     }
 
 
@@ -56,7 +67,8 @@ public class Order
 
     private double CalculateTax()
     {
-        return CalculateSumPrice() * 0.06;
+        double tax = CalculateSumPrice() * 0.06;
+        return Math.Round(tax, 2);
     }
 
     private double CalculateOrderTotal()

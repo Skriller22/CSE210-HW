@@ -27,4 +27,4 @@ class Program
 }
 
 // Abstraction
-// Note: There wasn't a need for creativity but I did allow for the creation of random comments just to make things easier.
+// Note: There wasn't a need for creativity but I did allow for the creation of random comments and videos just to make things easier for me.
