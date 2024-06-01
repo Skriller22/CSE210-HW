@@ -14,9 +14,9 @@ public class GoalManager
     public void Start()
     {
         // Debugging
-        _goals.Add(new SimpleGoal("Simple Goal", "This is a simple goal", 10));
-        _goals.Add(new EternalGoal("Eternal Goal", "This is an eternal goal", 5));
-        _goals.Add(new CheckListGoal("Checklist Goal", "This is a checklist goal", 5, 3, 10));
+        //_goals.Add(new SimpleGoal("Simple Goal", "This is a simple goal", 10));
+        //_goals.Add(new EternalGoal("Eternal Goal", "This is an eternal goal", 5));
+        //_goals.Add(new CheckListGoal("Checklist Goal", "This is a checklist goal", 5, 3, 10));
 
         int choice = 0;
 
@@ -47,7 +47,7 @@ public class GoalManager
                     RecordEvent();
                     break;
                 case 6:
-                    CombatMode();
+                    //CombatMode(); // still a work in progress. doesn't work as intended and breaks the program grading system
                     break;
                 case 7:
                     SaveExit();
