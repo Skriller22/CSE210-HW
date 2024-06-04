@@ -4,19 +4,14 @@ public class LectureEvent : Event
     {
         Lecturer = lecturer;
         MaxCapacity = maxCapacity;
+        Type = "Lecture";
     }
 
-    private string Type = "Lecture";
     private string Lecturer { get; set; }
     private int MaxCapacity { get; set; }
 
-    public override string GetFullDetails()
+    public string GetFullDetails()
     {
         return $"\nTitle: {Title}\nDescription: {Description}\nDate: {Date}\nTime: {Time}\nLecturer: {Lecturer}\nMax Capacity: {MaxCapacity}\nAddress: {Address.DisplayAddress()}\n";
-    }
-
-    public override string GetShortDetails()
-    {
-        return $"\nEvent Type: {Type}\nTitle: {Title}\nDate: {Date}\n";
     }
 }
